@@ -1,0 +1,32 @@
+<div class="project-container">
+  <h2>Panel de Proyectos</h2>
+  <p>Crea un nuevo proyecto o selecciona uno ya creado.</p>
+
+  <button class="btn" (click)="createProject()">Crear Proyecto</button>
+
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <div *ngIf="projects.length > 0">
+    <h3>Lista de Proyectos</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of projects">
+          <td>{{ project.description }}</td>
+          <td>
+            <div class="button-container">
+              <button class="btn btn-details" (click)="viewDetails(project.id)">Detalles</button>
+              <button class="btn btn-edit" (click)="editProject(project.id)">Editar</button>
+              <button class="btn btn-delete" (click)="deleteProject(project.id)">Eliminar</button>
+            </div>
+          </td>          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+.app-header {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+  flex: 1;
+}
+
+.app-header .back-button {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: absolute;
+  right: 3rem;
+}
+
+.app-header .back-button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    justify-content: center;
+  }
+
+  .app-header h1 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .app-header .back-button {
+    margin-right: 0rem;
+  }
+}

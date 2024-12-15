@@ -1,0 +1,11 @@
+<header class="app-header" [ngClass]="{'logged-in': isLoggedIn}">
+    <button
+    class="back-button"
+    *ngIf="isLoggedIn && canGoBack()"
+    (click)="goBack()"
+    aria-label="Volver"
+  >
+    ← Volver
+  </button>
+    <h1>Aplicación de Presupuesto</h1>
+</header>

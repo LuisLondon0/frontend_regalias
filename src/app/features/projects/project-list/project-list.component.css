@@ -1,0 +1,130 @@
+.project-container {
+    background-color: white;
+    padding: 0.5rem 2rem 2rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 900px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.project-container h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.project-container p {
+    margin-bottom: 2rem;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.project-container button {
+    background-color: #2575fc;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-container .btn-details {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.project-container .btn-details:hover {
+    background-color: #45a049;
+}
+
+.project-container .btn-edit {
+    background-color: #FF9800;
+    color: white;
+}
+
+.project-container .btn-edit:hover {
+    background-color: #fb8c00;
+}
+
+.project-container .btn-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.project-container .btn-delete:hover {
+    background-color: #e53935;
+}
+
+.project-container button:hover {
+    background-color: #1a5fb4;
+}
+
+.project-container .error {
+    color: red;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.project-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.project-container table th,
+.project-container table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.project-container table th {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.project-container table td {
+    color: #555;
+}
+.project-container .button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+    .project-container {
+        padding: 1rem;
+        width: 95%;
+        margin: 1rem auto;
+    }
+
+    .project-container h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .project-container p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .project-container button {
+        max-width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .project-container table th, 
+    .project-container table td {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
