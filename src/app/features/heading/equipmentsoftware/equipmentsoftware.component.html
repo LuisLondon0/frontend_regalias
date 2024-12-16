@@ -1,0 +1,39 @@
+<div class="form-title">
+    <h3>Equipos y Software</h3>
+  </div>
+  
+  <table class="my-table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Actividad</th>
+        <th>Entidad</th>
+        <th>Descripción</th>
+        <th>Justificación</th>
+        <th>Cantidad</th>
+        <th>Propiedad Administración</th>
+        <th>Valor unitario</th>
+        <th>Total</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of recordList">
+        <td>{{ r.id }}</td>
+        <td>{{ r.activity_id }}</td>
+        <td>{{ r.entity }}</td>
+        <td>{{ r.description }}</td>
+        <td>{{ r.justification }}</td>
+        <td>{{ r.quantity }}</td>
+        <td>{{ r.propertyoradministration }}</td>
+        <td>{{ r.unitvalue | currency:'USD':'symbol':'1.2-2' }}</td>
+        <td>{{ r.total | currency:'USD':'symbol':'1.2-2' }}</td>
+        <td>
+          <!-- Botón de editar con ícono -->
+          <button class="edit-button" (click)="onEdit(r, 'someField', 'newValue')">
+            <i class="fas fa-pencil-alt"style="color: blue;"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
