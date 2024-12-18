@@ -8,7 +8,7 @@ import { EquipmentsoftwareService } from '../../../core/equipmentsoftware/equipm
 
 @Component({
   selector: 'app-equipmentsoftware',
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule],
   templateUrl: './equipmentsoftware.component.html',
   styleUrl: './equipmentsoftware.component.css'
 })
