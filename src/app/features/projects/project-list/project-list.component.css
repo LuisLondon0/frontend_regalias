@@ -100,6 +100,71 @@
     justify-content: flex-start;
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    max-height: 80vh; /* Limita la altura máxima del modal */
+    overflow-y: auto; /* Permite el desplazamiento si el contenido es demasiado largo */
+  }
+  
+  .modal-content h3 {
+    margin-bottom: 1rem; /* Espacio debajo del título */
+  }
+  
+  .modal-content p {
+    margin-bottom: 1.5rem; /* Espacio debajo de la descripción */
+    font-size: 1rem; /* Tamaño de fuente adecuado para la descripción */
+    color: #555; /* Color gris claro para el texto de la descripción */
+    line-height: 1.5; /* Mejor legibilidad en la descripción */
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem; /* Espacio entre los botones */
+    margin-top: 1rem;
+  }
+  
+  .modal-buttons button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem; /* Asegura un tamaño adecuado de los botones */
+  }
+  
+  .modal .btn-delete {
+    background-color: #f44336;  /* Rojo para el botón de eliminar */
+    color: white;
+  }
+  
+  .modal .btn-cancel {
+    background-color: #2575fc;  /* Azul para el botón cancelar */
+    color: white;
+  }
+  
+  .modal .btn:hover {
+    background-color: #1a5fb4;  /* Efecto hover para el botón cancelar */
+  }
+  
+  .modal .btn-delete:hover {
+    background-color: #e53935;  /* Efecto hover para el botón eliminar */
+  }
+
 @media (max-width: 768px) {
     .project-container {
         padding: 1rem;

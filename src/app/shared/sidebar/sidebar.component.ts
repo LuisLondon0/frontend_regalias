@@ -15,7 +15,6 @@ export class SidebarComponent implements OnInit {
   projectSelected: boolean = false;
   userName: string = '';
   isSidebarOpen: boolean = false;
-  isMobile: boolean = false;
 
   constructor(private authService: AuthService, private projectService: ProjectService, private router: Router) {}
 
@@ -30,8 +29,6 @@ export class SidebarComponent implements OnInit {
     // this.projectService.selectedProject$.subscribe(selected => {
     //   this.projectSelected = selected;
     // });
-
-    this.checkScreenSize();
   }
 
   logout(): void {
@@ -48,25 +45,8 @@ export class SidebarComponent implements OnInit {
     const sidebar = document.querySelector('.sidebar');
     const hamburger = document.querySelector('.hamburger');
 
-    if (this.isSidebarOpen && this.isMobile && sidebar && !sidebar.contains(event.target as Node) && !hamburger?.contains(event.target as Node)) {
+    if (this.isSidebarOpen && sidebar && !sidebar.contains(event.target as Node) && !hamburger?.contains(event.target as Node)) {
       this.isSidebarOpen = false;
-    }
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event): void {
-    this.checkScreenSize();
-  }
-
-  checkScreenSize(): void {
-    const screenWidth = window.innerWidth;
-
-    if (screenWidth > 768) {
-      this.isSidebarOpen = true;
-      this.isMobile = false;
-    } else {
-      this.isSidebarOpen = false;
-      this.isMobile = true;
     }
   }
 }
