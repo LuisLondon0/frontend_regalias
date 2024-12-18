@@ -1,0 +1,40 @@
+.my-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff; /* Fondo blanco */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+  
+  .my-table thead {
+    background: #f2f2f2; /* Fondo gris suave para el encabezado */
+  }
+  
+  .my-table th,
+  .my-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .my-table tr:nth-child(even) {
+    background: #f9f9f9; /* Diferencia las filas pares con un fondo ligeramente distinto */
+  }
+  
+  /* Estilo del botón editar */
+  .edit-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    padding: 4px 8px;
+  }
+  
+  .edit-button:hover {
+    background: #e2e2e2;
+    border-radius: 4px;
+  }
+  
+  .material-icons {
+    vertical-align: middle;
+  }
