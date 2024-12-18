@@ -1,9 +1,12 @@
 body {
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh; /* Asegura que el body siempre ocupe toda la altura de la ventana */
   margin: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background-size: cover; /* Hace que el fondo cubra todo el body */
+  background-attachment: fixed; /* Fija el fondo para que no se repita al hacer scroll */
   padding-top: 4rem;
 }
