@@ -1,0 +1,24 @@
+<div class="project-creation-container">
+    <h1 class="title">Creación de Proyecto</h1>
+  
+    <div class="create-project-options">
+      <button (click)="selectOption('manual')">Crear Manualmente</button>
+      <button (click)="selectOption('excel')">Crear desde Excel</button>
+    </div>
+  
+    <div *ngIf="selectedOption === 'manual'">
+      <form [formGroup]="manualForm" (ngSubmit)="createManualProject()" class="form-manual">
+        <input formControlName="description" placeholder="Descripción del proyecto" />
+        <input formControlName="generalobjective" placeholder="Objetivo General" />
+        <button type="submit">Crear Proyecto</button>
+      </form>
+    </div>
+  
+    <div *ngIf="selectedOption === 'excel'">
+      <form [formGroup]="excelForm" (ngSubmit)="createFromExcel()" enctype="multipart/form-data" class="form-excel">
+        <label>Cargue la matriz de formulación</label>
+        <input type="file" (change)="onFileChange($event)" />
+        <button type="submit">Subir Excel</button>
+      </form>
+    </div>
+  </div>  

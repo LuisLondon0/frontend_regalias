@@ -1,0 +1,43 @@
+<div class="human-talent-container">
+  <div class="header-container">
+    <h2>Human Talent Information</h2>
+    <button class="btn-create-budget" (click)="onCreateBudget()">Crear Presupuesto</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Position</th>
+        <th class="justification">Justification</th> <!-- Aplica la clase a la cabecera -->
+        <th>Quantity</th>
+        <th>Weeks Year 1</th>
+        <th>Weeks Year 2</th>
+        <th>Weeks Year 3</th>
+        <th>Hour Value</th>
+        <th>Total Year 1</th>
+        <th>Total Year 2</th>
+        <th>Total Year 3</th>
+        <th>Total Amount</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let talent of human_talents">
+        <td>{{ talent.Position }}</td>
+        <td class="justification">{{ talent.Justification }}</td> <!-- Aplica la clase a la celda -->
+        <td>{{ talent.Quantity }}</td>
+        <td>{{ talent.Year1WeeksOrYears }}</td>
+        <td>{{ talent.Year2WeeksOrYears }}</td>
+        <td>{{ talent.Year3WeeksOrYears }}</td>
+        <td>{{ talent.HourValue | currency:'USD':"symbol" }}</td>
+        <td>{{ talent.Year1TotalAmount | currency:'USD':"symbol" }}</td>
+        <td>{{ talent.Year2TotalAmount | currency:'USD':"symbol" }}</td>
+        <td>{{ talent.Year3TotalAmount | currency:'USD':"symbol" }}</td>
+        <td>{{ talent.TotalHonorariumAmount | currency:'USD':"symbol" }}</td>
+        <!-- <td class="action-buttons">
+          <button class="btn-edit" (click)="onEdit(talent)">Editar</button>
+          <button class="btn-delete" (click)="onDelete(talent.TalentID)">Eliminar</button>
+        </td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>

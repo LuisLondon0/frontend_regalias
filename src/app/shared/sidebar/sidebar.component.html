@@ -1,0 +1,53 @@
+<div class="hamburger" (click)="toggleSidebar()">&#9776;</div>
+
+<div *ngIf="isLoggedIn" class="sidebar" [class.open]="isSidebarOpen">
+  <div class="user-info">
+    <img src="user-icon.ico" alt="User Icon" class="user-icon" />
+    <div class="user-details">
+        <span>{{ userName }}</span>
+        <button (click)="logout()">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <ul>
+    <li *ngIf="projectSelected">
+      <a [routerLink]="['/project-detail', selectedProjectId, 'summary']" (click)="toggleSidebar()">Resumen</a>
+    </li>
+    <li *ngIf="projectSelected">
+      <a [routerLink]="['/project-detail', selectedProjectId, 'humantalent']"(click)="toggleSidebar()">Talento Humano</a>
+    </li>
+    <li *ngIf="projectSelected">
+      <a [routerLink]="['/project-detail', selectedProjectId, 'equipment']" (click)="toggleSidebar()">Equipos y Software</a>
+    </li>
+    <!-- <li *ngIf="projectSelected">
+      <a [routerLink]="['/project/capacitacion-eventos']" (click)="toggleSidebar()">Capacitación y Eventos</a>
+    </li>
+    <li *ngIf="projectSelected">
+      <a [routerLink]="['/project/servicios-tecnologicos']" (click)="toggleSidebar()">Servicios Tecnológicos</a>
+    </li>
+    <li *ngIf="projectSelected">
+      <a [routerLink]="['/project/material-insumos']" (click)="toggleSidebar()">Material e Insumos</a>
+    </li>
+    <li *ngIf="projectSelected">
+      <a [routerLink]="['/project/documentacion']" (click)="toggleSidebar()">Documentación</a>
+    </li>
+    <li *ngIf="projectSelected">
+      <a [routerLink]="['/project/proteccion-conocimiento']" (click)="toggleSidebar()">Protección de Conocimiento</a>
+    </li>
+    <li *ngIf="projectSelected">
+      <a [routerLink]="['/project/infraestructura']" (click)="toggleSidebar()">Infraestructura</a>
+    </li>
+    <li *ngIf="projectSelected">
+      <a [routerLink]="['/project/gastos-viaje']" (click)="toggleSidebar()">Gastos de Viaje</a>
+    </li>
+    <li *ngIf="projectSelected">
+      <a [routerLink]="['/project/administrativos']" (click)="toggleSidebar()">Administrativos</a>
+    </li>
+    <li *ngIf="projectSelected">
+      <a [routerLink]="['/project/seguimiento']" (click)="toggleSidebar()">Seguimiento</a>
+    </li>
+    <li *ngIf="projectSelected">
+      <a [routerLink]="['/project/otros']" (click)="toggleSidebar()">Otros</a>
+    </li> -->
+  </ul>
+</div>
