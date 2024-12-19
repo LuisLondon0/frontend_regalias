@@ -1,1 +1,25 @@
-<p>project-detail works!</p>
+<div class="project-container">
+    <h2>Detalles del Proyecto</h2>
+  
+    <div *ngIf="isLoading">Cargando datos del proyecto...</div>
+    <div *ngIf="!isLoading && project">
+      <div class="detail-group">
+        <label>Descripción:</label>
+        <p>{{ project.description }}</p>
+      </div>
+      <div class="detail-group">
+        <label>Objetivo General:</label>
+        <p>{{ project.generalobjective }}</p>
+      </div>
+      <div class="detail-group">
+        <label>Total SGR:</label>
+        <p>{{ project.totalsgr }}</p>
+      </div>
+      <div class="detail-group">
+        <label>Duración Total:</label>
+        <p>{{ project.totalduration }} meses</p>
+      </div>
+    </div>
+  
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>

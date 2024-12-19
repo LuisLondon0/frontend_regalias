@@ -43,7 +43,7 @@ export class ProjectCreateComponent {
     this.projectService.createProject(project, userId).subscribe({
       next: (response) => {
         alert('Proyecto creado exitosamente');
-        setTimeout(() => this.router.navigate(['/projects']), 2000);
+        setTimeout(() => this.router.navigate(['/projects']), 1000);
       },
       error: (err) => {
         alert('Error al crear el proyecto');
@@ -67,7 +67,7 @@ export class ProjectCreateComponent {
       this.projectService.createProjectsFromExcel(this.excelFile, userId).subscribe({
         next: (response) => {
           alert('Proyecto creado exitosamente desde Excel');
-          setTimeout(() => this.router.navigate(['/projects']), 2000);
+          setTimeout(() => this.router.navigate(['/projects']), 1000);
         },
         error: (err) => {
           alert('Error al procesar el archivo Excel');

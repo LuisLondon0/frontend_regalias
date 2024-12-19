@@ -38,3 +38,97 @@
   .material-icons {
     vertical-align: middle;
   }
+
+  .btn-create-budget {
+    background-color: #2575fc;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-create-budget:hover {
+    background-color: #1a5fb4;
+  }
+
+  .human-talent-container table .btn-edit,
+.human-talent-container table .btn-delete {
+  padding: 0.6rem 1rem;
+  margin-right: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  border: none;
+  text-transform: uppercase;
+}
+
+.human-talent-container table .btn-edit {
+  background-color: #FF9800;
+  color: white;
+}
+
+.human-talent-container table .btn-edit:hover {
+  background-color: #fb8c00;
+}
+
+.human-talent-container table .btn-delete {
+  background-color: #f44336;
+  color: white;
+}
+
+.human-talent-container table .btn-delete:hover {
+  background-color: #e53935;
+}
+
+.human-talent-container .action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.human-talent-container .action-buttons button {
+  width: 100%;
+}
+
+.human-talent-container .action-buttons button:first-child {
+  margin-bottom: 10px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .human-talent-container {
+    max-width: 95%;
+    padding: 1rem;
+  }
+
+  .human-talent-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .human-talent-container table th,
+  .human-talent-container table td {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .human-talent-container table .btn-edit,
+  .human-talent-container table .btn-delete {
+    font-size: 0.8rem;
+  }
+
+  .btn-create-budget {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}

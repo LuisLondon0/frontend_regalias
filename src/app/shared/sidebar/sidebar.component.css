@@ -1,130 +1,135 @@
+/* Sidebar principal */
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 250px;
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    transform: translateX(-100%);
-    z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #333; /* Fondo oscuro */
+  color: white;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  z-index: 9999;
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.hamburger {
+  display: block;
+  position: fixed;
+  top: 0.5rem;
+  left: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+  z-index: 1100;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.hamburger:hover {
+  background-color: #5f0fb6;
+}
+
+/* Información del usuario */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.user-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-details button {
+  margin-top: 0.5rem;
+  background-color: #555; /* Gris oscuro para menor agresividad */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.user-details button:hover {
+  background-color: #444; /* Gris ligeramente más oscuro */
+  transform: translateY(-2px); /* Pequeño efecto de elevación */
+}
+
+/* Lista de botones en el sidebar */
+ul {
+  margin-top: 1rem;
+}
+
+ul li {
+  list-style: none;
+}
+
+/* Estilo para los enlaces dentro del sidebar */
+ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  display: block;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1rem; /* Ajustamos el tamaño de fuente para mejorar la legibilidad */
+}
+
+ul li a:hover {
+  background-color: #1a5fb4; /* Azul más oscuro al hacer hover */
+  transform: translateX(5px); /* Desplazamiento sutil */
+}
+
+/* Enlace específico cuando se pasa el mouse sobre los botones */
+ul li a.new-button {
+  background-color: #2575fc; /* Azul principal */
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+ul li a.new-button:hover {
+  background-color: #1a5fb4; /* Azul más oscuro al hacer hover */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    padding: 0.5rem;
   }
-  
-  .sidebar.open {
-    transform: translateX(0);
-  }
-  
-  .sidebar-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-  }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
+
   .user-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 1rem;
+    width: 40px;
+    height: 40px;
   }
 
-  .user-details {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  ul li a {
+    font-size: 0.9rem;
   }
 
-  .user-details span {
-    margin-bottom: 0.5rem;
-  }
-
-  .user-details button {
-    font-size: 0.7rem;
-    padding: 0.4rem 0.8rem;
-    margin-top: 0.2rem;
-  }
-  
-  .sidebar-links {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .sidebar-links a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 0;
-    font-size: 1.1rem;
-  }
-  
-  .sidebar-links a:hover {
-    background-color: #444;
-  }
-  
-  button {
-    background-color: #2575fc;
-    color: white;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 1rem;
-  }
-  
-  button:hover {
-    background-color: #1a5fb4;
-  }
-  
-  @media (max-width: 768px) {
-    .sidebar {
-      width: 250px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      transform: translateX(-100%);
-    }
-  
-    .sidebar.open {
-      transform: translateX(0);
-    }
-  
-    .sidebar-header {
-      justify-content: center;
-    }
-  
-    .user-info {
-      text-align: center;
-    }
-  
-    .sidebar-links a {
-      font-size: 0.9rem;
-    }
-  }
-  
   .hamburger {
-    display: none;
-    position: fixed;
-    top: 0.5rem;
-    left: 1rem;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #333;
-    z-index: 1100;
+    font-size: 1.8rem;
   }
-  
-  @media (max-width: 768px) {
-    .hamburger {
-      display: block;
-    }
-  }  
+}
