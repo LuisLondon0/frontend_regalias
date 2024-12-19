@@ -8,7 +8,7 @@ import { HumanTalentBudgetModel } from '../../../core/models/human-talent-budget
 
 @Component({
   selector: 'app-human-talent',
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule],
   templateUrl: './human-talent.component.html',
   styleUrl: './human-talent.component.css'
 })
