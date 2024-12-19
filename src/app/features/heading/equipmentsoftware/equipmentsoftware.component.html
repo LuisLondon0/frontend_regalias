@@ -1,39 +1,91 @@
-<div class="form-title">
-    <h3>Equipos y Software</h3>
+<div class="header-container">
+  <h2>Human Talent Information</h2>
+  <button class="btn-create-budget" (click)="onCreateBudget()">Crear Presupuesto</button>
+</div>
+
+<table class="my-table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Actividad</th>
+      <th>Entidad</th>
+      <th>Descripción</th>
+      <th>Justificación</th>
+      <th>Cantidad</th>
+      <th>Propiedad Administración</th>
+      <th>Valor unitario</th>
+      <th>Total</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let r of recordList; let i = index">
+      <td>{{ r.id }}</td>
+      <td>{{ r.activity_id }}</td>
+      <td>{{ r.entity }}</td>
+      <td>
+        <textarea
+          [(ngModel)]="r.description"
+          rows="5"
+          cols="33"
+          style="border: 0cap"
+        ></textarea>
+      </td>
+      <td>
+        <textarea
+          [(ngModel)]="r.justification"
+          rows="5"
+          cols="33"
+          style="border: 0cap"
+        ></textarea>
+      </td>
+      <td>
+        <textarea
+          [(ngModel)]="r.quantity"
+          rows="5"
+          cols="10"
+          style="border: 0cap; overflow: hidden; resize: none"
+        ></textarea>
+      </td>
+      <td>
+        <textarea
+          [(ngModel)]="r.propertyoradministration"
+          rows="5"
+          cols="20"
+          style="border: 0cap"
+        ></textarea>
+      </td>
+      <td>{{ r.unitvalue | currency : "USD" : "symbol" : "1.2-2" }}</td>
+      <td>{{ r.total | currency : "USD" : "symbol" : "1.2-2" }}</td>
+      <td class="action-buttons">
+        <button class="btn-edit" (click)="openModal(r)">Editar</button>
+        <button class="btn-delete" (click)="onDelete(r.id)">Eliminar</button>
+      </td>
+      <!-- <td>
+        Botón de editar con ícono
+        <button class="edit-button" (click)="onEdit(r)">
+        <button class="btn-edit" (click)="openModal(r)">
+          <i class="fas fa-pencil-alt" style="color: rgb(26, 88, 115)"></i>
+        </button>
+      </td> -->
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Mensaje de confirmación</h5>
+      </div>
+      <div class="modal-body">
+        <p>¿Esta seguro de actualizar el registro?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="btn-actualizar">Actualizar</button>
+        <button type="button" class="btn btn-danger" (click)="closeModal()" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
   </div>
-  
-  <table class="my-table">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Actividad</th>
-        <th>Entidad</th>
-        <th>Descripción</th>
-        <th>Justificación</th>
-        <th>Cantidad</th>
-        <th>Propiedad Administración</th>
-        <th>Valor unitario</th>
-        <th>Total</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let r of recordList">
-        <td>{{ r.id }}</td>
-        <td>{{ r.activity_id }}</td>
-        <td>{{ r.entity }}</td>
-        <td>{{ r.description }}</td>
-        <td>{{ r.justification }}</td>
-        <td>{{ r.quantity }}</td>
-        <td>{{ r.propertyoradministration }}</td>
-        <td>{{ r.unitvalue | currency:'USD':'symbol':'1.2-2' }}</td>
-        <td>{{ r.total | currency:'USD':'symbol':'1.2-2' }}</td>
-        <td>
-          <!-- Botón de editar con ícono -->
-          <button class="edit-button" (click)="onEdit(r, 'someField', 'newValue')">
-            <i class="fas fa-pencil-alt"style="color: blue;"></i>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+</div>

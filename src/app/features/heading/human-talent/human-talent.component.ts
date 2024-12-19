@@ -41,6 +41,7 @@ export class HumanTalentComponent implements OnInit {
     });
   }
 
+
   combineData(budgetData: any[], detailsData: any[]): void {
     const combinedData = budgetData.map(budget => {
       const details = detailsData.filter(d => d.TalentID === budget.TalentID);
