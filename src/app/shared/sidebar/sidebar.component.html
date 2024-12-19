@@ -11,15 +11,15 @@
 
   <ul>
     <li *ngIf="projectSelected">
-      <a [routerLink]="['/project/summary']" (click)="toggleSidebar()">Resumen</a>
+      <a [routerLink]="['/project-detail', selectedProjectId, 'summary']" (click)="toggleSidebar()">Resumen</a>
     </li>
     <li *ngIf="projectSelected">
-      <a [routerLink]="['/project/talento-humano']" (click)="toggleSidebar()">Talento Humano</a>
+      <a [routerLink]="['/project-detail', selectedProjectId, 'humantalent']"(click)="toggleSidebar()">Talento Humano</a>
     </li>
     <li *ngIf="projectSelected">
-      <a [routerLink]="['/project/equipos-software']" (click)="toggleSidebar()">Equipos y Software</a>
+      <a [routerLink]="['/project-detail', selectedProjectId, 'equipment']" (click)="toggleSidebar()">Equipos y Software</a>
     </li>
-    <li *ngIf="projectSelected">
+    <!-- <li *ngIf="projectSelected">
       <a [routerLink]="['/project/capacitacion-eventos']" (click)="toggleSidebar()">Capacitación y Eventos</a>
     </li>
     <li *ngIf="projectSelected">
@@ -48,6 +48,6 @@
     </li>
     <li *ngIf="projectSelected">
       <a [routerLink]="['/project/otros']" (click)="toggleSidebar()">Otros</a>
-    </li>
+    </li> -->
   </ul>
 </div>

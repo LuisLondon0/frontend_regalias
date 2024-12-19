@@ -1,8 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service';
-import { ProjectService } from '../../core/project/project.service';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,9 +15,9 @@ export class SidebarComponent implements OnInit {
   projectSelected: boolean = false;
   userName: string = '';
   isSidebarOpen: boolean = false;
-  isMobile: boolean = false;
+  selectedProjectId: number | null = null;
 
-  constructor(private authService: AuthService, private projectService: ProjectService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.authService.isLoggedIn().subscribe((isLoggedIn) => {
@@ -27,11 +27,26 @@ export class SidebarComponent implements OnInit {
       }
     });
 
-    // this.projectService.selectedProject$.subscribe(selected => {
-    //   this.projectSelected = selected;
-    // });
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.detectProjectIdFromUrl();
+      });
 
-    this.checkScreenSize();
+    this.detectProjectIdFromUrl();
+  }
+
+  private detectProjectIdFromUrl(): void {
+    const url = this.router.url;
+    const match = url.match(/\/project-detail\/(\d+)/);
+
+    if (match && match[1]) {
+      this.selectedProjectId = +match[1];
+      this.projectSelected = true;
+    } else {
+      this.selectedProjectId = null;
+      this.projectSelected = false;
+    }
   }
 
   logout(): void {
@@ -48,25 +63,8 @@ export class SidebarComponent implements OnInit {
     const sidebar = document.querySelector('.sidebar');
     const hamburger = document.querySelector('.hamburger');
 
-    if (this.isSidebarOpen && this.isMobile && sidebar && !sidebar.contains(event.target as Node) && !hamburger?.contains(event.target as Node)) {
+    if (this.isSidebarOpen && sidebar && !sidebar.contains(event.target as Node) && !hamburger?.contains(event.target as Node)) {
       this.isSidebarOpen = false;
-    }
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event): void {
-    this.checkScreenSize();
-  }
-
-  checkScreenSize(): void {
-    const screenWidth = window.innerWidth;
-
-    if (screenWidth > 768) {
-      this.isSidebarOpen = true;
-      this.isMobile = false;
-    } else {
-      this.isSidebarOpen = false;
-      this.isMobile = true;
     }
   }
 }

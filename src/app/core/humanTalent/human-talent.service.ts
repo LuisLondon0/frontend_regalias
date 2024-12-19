@@ -32,4 +32,16 @@ export class HumanTalentService {
   GetHumanTalentById(id:String):Observable<HumanTalentModel>{
     return this.http.get<HumanTalentModel>(`${ServiceConfig.url_base}${this.entity}/${id}`);
   }
+
+  getHumanTalentBudget(projectId: number): Observable<any> {
+    return this.http.get<any>(`${ServiceConfig.url_base}${this.entity}/total_budget_per_talent/${projectId}`);
+  }
+
+  getHumanTalentDetails(projectId: number): Observable<any> {
+    return this.http.get<any>(`${ServiceConfig.url_base}${this.entity}/budget_per_talent/${projectId}`);
+  }
+
+  createBudget(projectId: number): Observable<any> {
+    return this.http.post<any>(`${ServiceConfig.url_base}${this.entity}/budget/${projectId}`, {});
+  }
 }

@@ -14,6 +14,8 @@ import { CommonModule } from '@angular/common';
 export class ProjectListComponent implements OnInit {
   projects: any[] = [];
   errorMessage: string = '';
+  showModal: boolean = false;
+  selectedProject: any = null;
 
   constructor(
     private projectService: ProjectService,
@@ -65,11 +67,24 @@ export class ProjectListComponent implements OnInit {
   deleteProject(projectId: number) {
     this.projectService.deleteProject(projectId).subscribe({
       next: () => {
-        this.projects = this.projects.filter((project) => project.project_id !== projectId);
+        alert('Proyecto eliminado.');
+        this.projects = this.projects.filter((project) => project.id !== projectId);
+        this.closeModal();
       },
       error: (err) => {
         this.errorMessage = 'Error al eliminar el proyecto.';
+        this.closeModal();
       }
     });
+  }
+
+  confirmDelete(projectId: number): void {
+    this.selectedProject = this.projects.find(project => project.id === projectId);
+    this.showModal = true;
+  }
+
+  closeModal(): void {
+    this.showModal = false;
+    this.selectedProject = null;
   }
 }

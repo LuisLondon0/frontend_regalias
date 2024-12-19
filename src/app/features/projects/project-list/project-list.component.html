@@ -22,11 +22,22 @@
             <div class="button-container">
               <button class="btn btn-details" (click)="viewDetails(project.id)">Detalles</button>
               <button class="btn btn-edit" (click)="editProject(project.id)">Editar</button>
-              <button class="btn btn-delete" (click)="deleteProject(project.id)">Eliminar</button>
+              <button class="btn btn-delete" (click)="confirmDelete(project.id)">Eliminar</button>
             </div>
           </td>          
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <h3>¿Estás seguro de eliminar este proyecto?</h3>
+      <p>{{ selectedProject?.description }}</p>
+      <div class="modal-buttons">
+        <button (click)="deleteProject(selectedProject?.id)" class="btn btn-delete">Eliminar</button>
+        <button (click)="closeModal()" class="btn btn-cancel">Cancelar</button>
+      </div>
+    </div>
   </div>
 </div>

@@ -30,9 +30,9 @@ export class ProjectService {
     return this.http.post<any>(`${this.apiUrl}/projects/from-excel`, formData);
   }
 
-  updateProject(project: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/projects/${project.id}`, project);
-  }
+  updateProject(projectId: number, project: any) {
+    return this.http.put(`${this.apiUrl}/projects/${projectId}`, project);
+  }  
 
   deleteProject(projectId: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/projects/${projectId}`);
