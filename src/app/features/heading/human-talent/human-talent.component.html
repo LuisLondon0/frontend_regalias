@@ -28,15 +28,15 @@
         <td>{{ talent.Year1WeeksOrYears }}</td>
         <td>{{ talent.Year2WeeksOrYears }}</td>
         <td>{{ talent.Year3WeeksOrYears }}</td>
-        <td>{{ talent.HourValue | currency:'USD':true }}</td>
-        <td>{{ talent.Year1TotalAmount | currency:'USD':true }}</td>
-        <td>{{ talent.Year2TotalAmount | currency:'USD':true }}</td>
-        <td>{{ talent.Year3TotalAmount | currency:'USD':true }}</td>
-        <td>{{ talent.TotalHonorariumAmount | currency:'USD':true }}</td>
-        <td class="action-buttons">
+        <td>{{ talent.HourValue | currency:'USD':"symbol" }}</td>
+        <td>{{ talent.Year1TotalAmount | currency:'USD':"symbol" }}</td>
+        <td>{{ talent.Year2TotalAmount | currency:'USD':"symbol" }}</td>
+        <td>{{ talent.Year3TotalAmount | currency:'USD':"symbol" }}</td>
+        <td>{{ talent.TotalHonorariumAmount | currency:'USD':"symbol" }}</td>
+        <!-- <td class="action-buttons">
           <button class="btn-edit" (click)="onEdit(talent)">Editar</button>
           <button class="btn-delete" (click)="onDelete(talent.TalentID)">Eliminar</button>
-        </td>
+        </td> -->
       </tr>
     </tbody>
   </table>

@@ -62,7 +62,6 @@ export class HumanTalentComponent implements OnInit {
     });
 
     this.human_talents = combinedData;
-    console.log('Datos combinados:', this.human_talents);
   }
 
   getValueForYear(details: any[], year: number, field: string): any {
@@ -92,8 +91,18 @@ export class HumanTalentComponent implements OnInit {
   }
 
   onCreateBudget(): void {
-    console.log('Crear presupuesto');
-    // // Redirigir a la página de creación de presupuesto
-    // this.router.navigate(['/create-budget']);
+    if (this.projectId){
+      this.service.createBudget(this.projectId).subscribe({
+        next: (response) => {
+          if (response){
+            alert('Presupuesto creado correctamente');
+            if (this.projectId){
+              this.loadData(this.projectId);
+            }
+          }
+        },
+        error: (err) => console.log('Error al crear el presupuesto', err)
+      });
+    }
   }
 }
