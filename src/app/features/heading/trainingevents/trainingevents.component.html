@@ -1,0 +1,34 @@
+<div class="form-title">
+  <h3>capacitaciones y eventos</h3>
+</div>
+
+<table class="my-table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Actividad</th>
+      <th>Entidad</th>
+      <th>tema</th>
+      <th>Justificación</th>
+      <th>cantidad</th>
+      <th>total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let r of recordList">
+      <td>{{ r.id }}</td>
+      <td>{{ r.activityid }}</td>
+      <td>{{ r.entity }}</td>
+      <td>{{ r.theme }}</td>
+      <td>{{ r.justification }}</td>
+      <td>{{ r.quantity }}</td>
+      <td>{{ r.total }}</td>
+      <td>
+        <!-- Botón de editar con ícono -->
+        <button class="edit-button" (click)="onEdit(r, 'someField', 'newValue')">
+          <i class="fas fa-pencil-alt"style="color: blue;"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

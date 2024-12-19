@@ -7,6 +7,7 @@ import { ProjectDetailComponent } from './features/projects/project-detail/proje
 import { ProjectEditComponent } from './features/projects/project-edit/project-edit.component';
 import { HumanTalentComponent } from './features/heading/human-talent/human-talent.component';
 import { EquipmentsoftwareComponent } from './features/heading/equipmentsoftware/equipmentsoftware.component';
+import { TrainingEventsComponents } from './features/heading/trainingevents/trainingevents.component';
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent},
@@ -15,6 +16,7 @@ export const routes: Routes = [
     {path: 'project-create', component: ProjectCreateComponent},
     {path: 'project-detail/:id', component: ProjectDetailComponent},
     {path: 'project-edit/:id', component: ProjectEditComponent},
+    {path: 'trainingevents', component: TrainingEventsComponents},
     {path: 'project-detail/:id/humantalent', component: HumanTalentComponent},
     {path: 'project-detail/:id/equipment', component: EquipmentsoftwareComponent},
     {path: '**', redirectTo: 'login'},
