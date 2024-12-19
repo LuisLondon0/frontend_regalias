@@ -10,6 +10,7 @@ import { ServiceConfig } from '../../environments/environment';
 export class EquipmentsoftwareService {
 
   entity = 'equipment_softwares';
+  generate = 'generate_equipment_softwares';
   
   constructor(private http: HttpClient) { }
 
@@ -17,8 +18,8 @@ export class EquipmentsoftwareService {
     return this.http.get<EquipmentsoftwareModel[]>(`${ServiceConfig.url_base}${this.entity}`);
   }
 
-  EditEquipmentsoftware(humanTalent: EquipmentsoftwareModel): Observable<any> {
-    return this.http.put(`${ServiceConfig.url_base}${this.entity}/${humanTalent.id}`,humanTalent,{
+  EditEquipmentsoftware(equipment: EquipmentsoftwareModel): Observable<any> {
+    return this.http.put(`${ServiceConfig.url_base}${this.entity}/${equipment.id}`,equipment,{
       headers: new HttpHeaders({}),
       responseType: 'json'
     });
@@ -26,5 +27,12 @@ export class EquipmentsoftwareService {
 
   GetEquipmentsoftwareById(id:String):Observable<EquipmentsoftwareModel>{
     return this.http.get<EquipmentsoftwareModel>(`${ServiceConfig.url_base}${this.entity}/${id}`);
+  }
+
+  GetGenerateEquipmentSoftwares(): Observable<EquipmentsoftwareModel[]>{
+    return this.http.get<EquipmentsoftwareModel[]>(`${ServiceConfig.url_base}${this.generate}`);
+  }
+  GetAllEquipmentsoftwareProject(projectId: number): Observable<EquipmentsoftwareModel[]>{ 
+    return this.http.get<EquipmentsoftwareModel[]>(`${ServiceConfig.url_base}${this.entity}/project/${projectId}`);
   }
 }

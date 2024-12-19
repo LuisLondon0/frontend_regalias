@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HumanTalentModel } from '../../../core/models/human-talent.model';
 import { HumanTalentService } from '../../../core/humanTalent/human-talent.service';
+import { HumanTalentBudgetModel } from '../../../core/models/human-talent-budget.model';
 
 @Component({
   selector: 'app-human-talent',
@@ -14,11 +15,13 @@ import { HumanTalentService } from '../../../core/humanTalent/human-talent.servi
 export class HumanTalentComponent  implements OnInit{
 
   recordList!: HumanTalentModel[];
+  budgetList!: HumanTalentBudgetModel[];
 
   constructor(private service: HumanTalentService) {}
 
   ngOnInit(): void{
     this.fillRecords();
+    this.fillBudget();
   }
 
   fillRecords() {
@@ -32,9 +35,20 @@ export class HumanTalentComponent  implements OnInit{
     );
   }
 
-  onEdit(record: HumanTalentModel, field: string, value: any){
+  fillBudget() {
+    this.service.GetHumanTalentBudget().subscribe(
+      (data) => {
+        this.budgetList = data;
+      },
+      (error) => {
+        alert('Error de comunicación con el servicio');
+      }
+    );
+  }
+
+  onEdit(record: HumanTalentModel){
     
-    (record as any)[field] = value;
+    // (record as any)[field] = value;
 
     this.service.EditHumanTalent(record).subscribe({
       next: ( () => console.log('Registro actualizado:', record)),

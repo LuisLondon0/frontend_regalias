@@ -7,3 +7,4 @@ export class HumanTalentModel {
     justification! : string;
     quantity!: number;
 }
+
